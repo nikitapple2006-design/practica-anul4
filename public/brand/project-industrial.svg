@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Platformă industrială B2B">
+  <rect width="1200" height="800" fill="#eef6fb"/>
+  <rect x="90" y="90" width="1020" height="620" rx="28" fill="#0f3d64"/>
+  <rect x="140" y="150" width="330" height="500" rx="18" fill="#ffffff"/>
+  <rect x="510" y="150" width="550" height="130" rx="18" fill="#ffffff"/>
+  <rect x="510" y="315" width="250" height="335" rx="18" fill="#dff3ea"/>
+  <rect x="800" y="315" width="260" height="335" rx="18" fill="#fff1df"/>
+  <g fill="#f97316"><rect x="180" y="200" width="240" height="24" rx="12"/><rect x="180" y="260" width="180" height="18" rx="9"/><rect x="180" y="310" width="220" height="18" rx="9"/></g>
+  <g fill="#0f3d64"><rect x="550" y="190" width="420" height="24" rx="12"/><rect x="550" y="235" width="300" height="16" rx="8"/></g>
+  <circle cx="635" cy="440" r="58" fill="#0f3d64"/><path d="M610 440h50M635 415v50" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+  <path d="M850 520h160M850 470h120M850 420h145" stroke="#0f3d64" stroke-width="24" stroke-linecap="round"/>
+</svg>

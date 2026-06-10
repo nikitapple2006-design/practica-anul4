@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Modernizare portal e-commerce">
+  <rect width="1200" height="800" fill="#fbf7f2"/>
+  <rect x="110" y="110" width="980" height="580" rx="30" fill="#102033"/>
+  <rect x="165" y="170" width="890" height="90" rx="18" fill="#ffffff"/>
+  <rect x="165" y="310" width="260" height="300" rx="20" fill="#ffffff"/>
+  <rect x="470" y="310" width="260" height="300" rx="20" fill="#ffffff"/>
+  <rect x="775" y="310" width="280" height="300" rx="20" fill="#ffffff"/>
+  <g fill="#f97316"><circle cx="245" cy="415" r="48"/><circle cx="550" cy="415" r="48"/><circle cx="865" cy="415" r="48"/></g>
+  <g fill="#0f3d64"><rect x="210" y="510" width="170" height="18" rx="9"/><rect x="515" y="510" width="170" height="18" rx="9"/><rect x="835" y="510" width="165" height="18" rx="9"/><rect x="220" y="205" width="360" height="22" rx="11"/></g>
+  <path d="M880 205h90l-18 42h-52z" fill="#0f3d64"/>
+</svg>

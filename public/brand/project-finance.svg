@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Dashboard financiar pentru analiză">
+  <rect width="1200" height="800" fill="#f3f7fb"/>
+  <rect x="100" y="100" width="1000" height="600" rx="30" fill="#ffffff" stroke="#d8e3ee" stroke-width="4"/>
+  <rect x="150" y="160" width="220" height="480" rx="22" fill="#0f3d64"/>
+  <rect x="420" y="160" width="290" height="210" rx="22" fill="#e7f0f8"/>
+  <rect x="750" y="160" width="300" height="210" rx="22" fill="#fff1df"/>
+  <rect x="420" y="420" width="630" height="220" rx="22" fill="#102033"/>
+  <path d="M470 570l90-70 80 35 110-95 90 45 120-115" fill="none" stroke="#f97316" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff"><rect x="190" y="220" width="120" height="18" rx="9"/><rect x="190" y="280" width="140" height="18" rx="9"/><rect x="190" y="340" width="100" height="18" rx="9"/></g>
+  <g fill="#0f3d64"><rect x="460" y="220" width="160" height="20" rx="10"/><rect x="790" y="220" width="170" height="20" rx="10"/></g>
+</svg>

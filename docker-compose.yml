@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: amdaris-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: amdaris
+      POSTGRES_USER: amdaris
+      POSTGRES_PASSWORD: amdaris
+    ports:
+      - "5432:5432"
+    volumes:
+      - amdaris-postgres:/var/lib/postgresql/data
+
+volumes:
+  amdaris-postgres:

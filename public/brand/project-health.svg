@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Aplicație pentru programări medicale">
+  <rect width="1200" height="800" fill="#f4faf8"/>
+  <rect x="120" y="100" width="960" height="600" rx="32" fill="#ffffff" stroke="#cfe3dc" stroke-width="4"/>
+  <rect x="180" y="170" width="260" height="460" rx="22" fill="#0f3d64"/>
+  <rect x="500" y="170" width="500" height="90" rx="18" fill="#e2f4ed"/>
+  <rect x="500" y="300" width="220" height="150" rx="18" fill="#fff1df"/>
+  <rect x="760" y="300" width="240" height="150" rx="18" fill="#e8eef7"/>
+  <rect x="500" y="490" width="500" height="80" rx="18" fill="#f6f8fb"/>
+  <path d="M285 310v190M190 405h190" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <g fill="#0f3d64"><rect x="540" y="205" width="250" height="18" rx="9"/><rect x="540" y="340" width="140" height="18" rx="9"/><rect x="800" y="340" width="150" height="18" rx="9"/><rect x="540" y="520" width="310" height="18" rx="9"/></g>
+  <circle cx="910" cy="215" r="28" fill="#f97316"/>
+</svg>
