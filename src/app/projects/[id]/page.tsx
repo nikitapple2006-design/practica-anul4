@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/public/JsonLd";
 import { ProjectCard } from "@/components/public/ProjectCard";
 import { PublicShell } from "@/components/public/PublicShell";
-import { prisma } from "@/lib/prisma";
+import { getPublicProject, getRelatedProjects } from "@/lib/public-data";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -12,16 +12,16 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const project = await prisma.project.findFirst({ where: { OR: [{ id }, { slug: id }] } });
+  const project = await getPublicProject(id);
   if (!project) return { title: "Proiect indisponibil" };
   return { title: project.title, description: project.description, openGraph: { title: project.title, description: project.description, type: "article" } };
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { id } = await params;
-  const project = await prisma.project.findFirst({ where: { OR: [{ id }, { slug: id }] }, include: { images: { orderBy: { order: "asc" } } } });
+  const project = await getPublicProject(id);
   if (!project) notFound();
-  const related = await prisma.project.findMany({ where: { status: "PUBLISHED", industry: project.industry, NOT: { id: project.id } }, take: 3 });
+  const related = await getRelatedProjects(project.id, project.industry);
 
   return (
     <PublicShell>

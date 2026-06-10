@@ -4,7 +4,7 @@ import { PublicShell } from "@/components/public/PublicShell";
 import { SectionHeading } from "@/components/public/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { industries, site, technologies } from "@/lib/content";
-import { prisma } from "@/lib/prisma";
+import { getPublicPackages, getPublicServices } from "@/lib/public-data";
 
 export const metadata: Metadata = {
   title: "Servicii software",
@@ -15,8 +15,8 @@ export const dynamic = "force-dynamic";
 
 export default async function ServicesPage() {
   const [services, packages] = await Promise.all([
-    prisma.service.findMany({ where: { active: true }, orderBy: { order: "asc" } }),
-    prisma.servicePackage.findMany({ orderBy: { createdAt: "asc" } }),
+    getPublicServices(),
+    getPublicPackages(),
   ]);
 
   return (

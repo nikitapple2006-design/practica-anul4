@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
 import { ProjectStatus } from "@prisma/client";
-import { handleApiError, requireAdmin } from "@/lib/api";
+import { apiError, handleApiError, requireAdmin } from "@/lib/api";
+import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { parseStringList, projectSchema } from "@/lib/validators";
 
@@ -14,6 +16,11 @@ export async function GET(request: NextRequest) {
     const technology = searchParams.get("technology") ?? undefined;
     const search = searchParams.get("search") ?? undefined;
     const includeDrafts = searchParams.get("includeDrafts") === "true";
+    const session = includeDrafts ? await getServerSession(authOptions) : null;
+
+    if (includeDrafts && session?.user.role !== "ADMIN") {
+      return apiError("Nu ai permisiunea de a vedea proiectele nepublicate.", "FORBIDDEN", 403);
+    }
 
     const where = {
       ...(includeDrafts ? {} : { status: ProjectStatus.PUBLISHED }),

@@ -5,14 +5,14 @@ import { ProjectCard } from "@/components/public/ProjectCard";
 import { PublicShell } from "@/components/public/PublicShell";
 import { SectionHeading } from "@/components/public/SectionHeading";
 import { site, stats, technologies, testimonials } from "@/lib/content";
-import { prisma } from "@/lib/prisma";
+import { getPublicProjects, getPublicServices } from "@/lib/public-data";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const [services, projects] = await Promise.all([
-    prisma.service.findMany({ where: { active: true }, orderBy: { order: "asc" }, take: 6 }),
-    prisma.project.findMany({ where: { status: "PUBLISHED" }, orderBy: { createdAt: "desc" }, take: 4 }),
+    getPublicServices(6),
+    getPublicProjects(4),
   ]);
 
   return (

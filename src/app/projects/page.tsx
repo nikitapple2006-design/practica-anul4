@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ProjectCard } from "@/components/public/ProjectCard";
 import { PublicShell } from "@/components/public/PublicShell";
-import { prisma } from "@/lib/prisma";
+import { getPublicProjects } from "@/lib/public-data";
 
 export const metadata: Metadata = {
   title: "Proiecte și studii de caz",
@@ -14,18 +14,16 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
   const params = await searchParams;
   const page = Math.max(Number(params.page ?? 1), 1);
   const limit = 9;
-  const where = {
-    status: "PUBLISHED" as const,
-    ...(params.category ? { category: params.category } : {}),
-    ...(params.industry ? { industry: params.industry } : {}),
-    ...(params.technology ? { technologies: { has: params.technology } } : {}),
-    ...(params.search ? { title: { contains: params.search, mode: "insensitive" as const } } : {}),
-  };
-  const [projects, total, allProjects] = await Promise.all([
-    prisma.project.findMany({ where, orderBy: { createdAt: "desc" }, skip: (page - 1) * limit, take: limit }),
-    prisma.project.count({ where }),
-    prisma.project.findMany({ where: { status: "PUBLISHED" }, select: { category: true, industry: true, technologies: true } }),
-  ]);
+  const allProjects = await getPublicProjects();
+  const filtered = allProjects.filter((project) => {
+    const search = params.search?.toLowerCase();
+    return (!params.category || project.category === params.category)
+      && (!params.industry || project.industry === params.industry)
+      && (!params.technology || project.technologies.includes(params.technology))
+      && (!search || project.title.toLowerCase().includes(search) || project.description.toLowerCase().includes(search));
+  });
+  const total = filtered.length;
+  const projects = filtered.slice((page - 1) * limit, page * limit);
   const categories = [...new Set(allProjects.map((item) => item.category))];
   const industries = [...new Set(allProjects.map((item) => item.industry))];
   const technologies = [...new Set(allProjects.flatMap((item) => item.technologies))];

@@ -30,7 +30,7 @@ export function Footer() {
           </div>
           <div className="mt-5 flex gap-3" aria-label="Rețele sociale">
             <Link href="#" aria-label="LinkedIn AMDARIS" className="rounded-md bg-white/10 p-2"><Share2 size={18} /></Link>
-            <Link href="#" aria-label="Repository AMDARIS" className="rounded-md bg-white/10 p-2"><Code2 size={18} /></Link>
+            <Link href="#" aria-label="Cod sursă AMDARIS" className="rounded-md bg-white/10 p-2"><Code2 size={18} /></Link>
           </div>
         </div>
       </div>

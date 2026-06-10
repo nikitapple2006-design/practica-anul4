@@ -66,7 +66,13 @@ export async function DELETE(request: NextRequest) {
       return apiError("Calea fișierului nu este validă.", "VALIDATION_ERROR", 400);
     }
 
-    await unlink(path.join(process.cwd(), "public", url)).catch(() => undefined);
+    const uploadRoot = path.resolve(process.cwd(), process.env.UPLOAD_DIR ?? "public/uploads");
+    const target = path.resolve(process.cwd(), "public", `.${url}`);
+    if (!target.startsWith(uploadRoot + path.sep)) {
+      return apiError("Calea fișierului nu este permisă.", "VALIDATION_ERROR", 400);
+    }
+
+    await unlink(target).catch(() => undefined);
     return NextResponse.json({ ok: true });
   } catch (error) {
     return handleApiError(error);

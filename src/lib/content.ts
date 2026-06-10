@@ -34,7 +34,7 @@ export const testimonials = [
 
 export const technologies = ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "Prisma", "AWS", "Azure", "Docker", "Kubernetes"];
 
-export const industries = ["Finance", "Healthcare", "E-commerce", "Manufacturing", "Logistică", "Educație", "Retail", "SaaS"];
+export const industries = ["Finanțe", "Sănătate", "Comerț online", "Producție", "Logistică", "Educație", "Retail", "SaaS"];
 
 export const serviceOptions = [
   "Echipe dedicate",

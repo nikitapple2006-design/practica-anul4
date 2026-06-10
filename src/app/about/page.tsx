@@ -28,7 +28,7 @@ export default function AboutPage() {
         </div>
         <div className="rounded-lg bg-white p-7 shadow-sm">
           <h2 className="text-2xl font-bold text-slate-950">Echipă</h2>
-          <p className="mt-4 leading-7 text-slate-600">Echipa reunește dezvoltatori full-stack, arhitecți software, specialiști QA, DevOps și consultanți tehnici care lucrează integrat cu echipele clienților.</p>
+          <p className="mt-4 leading-7 text-slate-600">Echipa reunește dezvoltatori cu experiență pe front-end și back-end, arhitecți software, specialiști QA, DevOps și consultanți tehnici care lucrează integrat cu echipele clienților.</p>
         </div>
       </section>
       <section className="bg-white py-16">

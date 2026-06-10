@@ -1,6 +1,6 @@
 # AMDARIS
 
-Aplicație full-stack Next.js 15 pentru website de companie software B2B, cu dashboard administrativ, API-uri protejate, PostgreSQL prin Prisma și autentificare NextAuth JWT.
+Aplicație Next.js 15 pentru website de companie software B2B, cu panou administrativ, API-uri protejate, PostgreSQL prin Prisma și autentificare NextAuth JWT.
 
 ## Stack
 
@@ -31,8 +31,14 @@ DATABASE_URL="postgresql://amdaris:amdaris@localhost:5432/amdaris"
 NEXTAUTH_SECRET="un-secret-lung-pentru-dezvoltare"
 NEXTAUTH_URL="http://localhost:3000"
 ADMIN_EMAIL="admin@amdaris.ro"
-ADMIN_PASSWORD_HASH=""
+ADMIN_PASSWORD_HASH="hash-bcrypt-pentru-parola-admin"
 UPLOAD_DIR="public/uploads"
+```
+
+Poți genera hash-ul pentru parola de administrator cu:
+
+```bash
+node -e "const bcrypt=require('bcryptjs'); bcrypt.hash(process.argv[1], 12).then(console.log)" "parola-ta"
 ```
 
 4. Rulează migrațiile și seed-ul:
@@ -42,7 +48,7 @@ npx prisma migrate dev --name init
 npm run seed
 ```
 
-Seed-ul creează utilizatorul `admin@amdaris.ro`. Dacă `ADMIN_PASSWORD_HASH` este gol, parola locală este `Admin1234!`.
+Seed-ul creează sau actualizează utilizatorul `admin@amdaris.ro` folosind hash-ul din `ADMIN_PASSWORD_HASH`.
 
 5. Pornește serverul:
 
@@ -51,7 +57,7 @@ npm run dev
 ```
 
 Site public: `http://localhost:3000`  
-Dashboard: `http://localhost:3000/dashboard`
+Panou administrativ: `http://localhost:3000/dashboard`
 
 ## Rute principale
 
